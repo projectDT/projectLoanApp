@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1 style="background-color:lightblue; color:Darkblue; font-family:verdana; text-align:center;">Digital Trust Bank</h1>
+
+    <form class="form-horizontal" name="provideDetails">
+		
+		<div class="col-xs-12">
+		
+		<fieldset name="basicInfo">
+		<legend style="color: red" >Basic Information</legend>
+            <div class="form-group">
+            <label for="customerName">
+              Name
+            </label>
+            <input class="form-control" name="customerName" cam-variable-type="String" cam-variable-name="customerName" type="text" >
+			</div>
+			
+			<div class="form-group">
+            <label for="customerAge">
+              Age
+            </label>
+            <input class="form-control" name="customerAge" cam-variable-type="Long" cam-variable-name="customerAge" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="customerSalary">
+              Salary 
+            </label>
+            <input class="form-control" name="customerSalary" cam-variable-type="Long" cam-variable-name="customerSalary" type="text" placeholder="( per annum)">
+			</div>
+		</fieldset>
+		<br>
+		<fieldset name="loanTenure" >
+		<legend style="color: red">Loan Tenure</legend>
+			<div class="form-group">
+            <label for="LoanTenure ">
+              Loan Tenure 
+            </label>
+            <input class="form-control" name="LoanTenure " cam-variable-type="Long" cam-variable-name="LoanTenure " type="text" placeholder="( in months)">
+			</div>
+		</fieldset>	
+		<br>
+		<fieldset name="communicationDetails" >
+		<legend style="color: red">Communication Details</legend>
+			<div class="form-group">
+            <label for="emailAddress">
+              E-mail 
+            </label>
+            <input class="form-control" name="emailAddress" cam-variable-type="String" cam-variable-name="emailAddress" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="mobileNo">
+              Mobile Number
+            </label>
+            <input class="form-control" name="mobileNo" cam-variable-type="String" cam-variable-name="mobileNo" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="address">
+              Permanent Address
+            </label>
+            <input class="form-control" name="address" cam-variable-type="String" cam-variable-name="address" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="city">
+              City
+            </label>
+            <input class="form-control" name="city" cam-variable-type="String" cam-variable-name="city" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="state">
+              State
+            </label>
+            <input class="form-control" name="state" cam-variable-type="String" cam-variable-name="state" type="text">
+			</div>
+			
+			<div class="form-group">
+            <label for="pincode">
+              Pincode
+            </label>
+            <input class="form-control" name="pincode" cam-variable-type="String" cam-variable-name="pincode" type="text">
+			</div>
+		</fieldset>	
+		<br>	
+		</div>
+        <script cam-script type="text/form-script">
+          // custom JavaScript goes here
+        </script>
+    </form>
+</body>	
+</html>

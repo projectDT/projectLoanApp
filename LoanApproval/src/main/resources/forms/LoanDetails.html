@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="background-color:lightblue; color:Darkblue; font-family:verdana; text-align:center;">Loan Details</h1>
+<fieldset>
+<div class="form-group">
+<p style="color: red; font-size: 40px;">These are the basic requirements according to your selected loan type</p>
+
+<form name="formName" >
+   <script cam-script type="text/FormScript">  
+	inject(['$http', 'Uri', function($http, Uri) {           
+         camForm.on('variables-fetched', function() {     
+         $http.get(Uri.appUri('http://localhost:8090/details/1')).then(function(task) {
+         $scope.task = task;
+         console.log(task);
+        });
+      });
+    }]);
+  </script>
+<!--------------------------------------------- Interest Detais ----------------------------------------------------->
+	<p style="font-size: 40px;">Loan Type You Selected</p>
+  <div class="">
+		<label for="idf" >ID</label>
+		<input id="id" class="form-control" type="text" ng-model="task.data.id" required />
+
+  </div>
+ 	
+  <div class="">
+		<label for="namef" >Type of loan You selected</label>
+		<input id="name" class="form-control" type="text" ng-model="task.data.loan" required />
+
+  </div>
+
+	<p style="font-size: 40px;">Interest Details</p>
+  <div class="">
+		<label for="roif" >Rate of Interest</label>
+		<input id="roi" class="form-control" type="text" ng-model="task.data.interestDetails['rate']" required />
+
+  </div>
+
+<!---------------------------------------------- Eligibility Criteria ------------------------------------------>
+
+ <p style="font-size: 40px;">Eligibility Criteria</p>
+  <div class="">
+		<label for="minAgef" >Minimum Age</label>
+     <input id="minAge" class="form-control" type="text" ng-model="task.data.eligibilityCriteria['minAge']" required />
+	
+
+  </div>
+  <div class="">
+		<label for="maxAgef" >Maximum Age</label>
+		<input id="maxAge" class="form-control" type="text" ng-model="task.data.eligibilityCriteria['maxAge']" required />
+		
+  </div>
+  <div class="">
+		<label for="salf" >Minimum Salary</label>
+		<input id="sal" class="form-control" type="text" ng-model="task.data.eligibilityCriteria['salary']" required />
+		
+  </div>
+
+<!---------------------------------------------- Documents required ------------------------------------------>
+
+ 
+ <div class="">
+		<label for="docf" style="font-size: 40px;">Documents required</label>
+		<input id="doc" class="form-control" type="text" ng-model="task.data.documents" required />
+		
+ </div> 
+</form>
+</div>
+</fieldset>
+</body>
+</html>

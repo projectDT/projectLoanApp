@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="background-color:lightblue; color:Darkblue; font-family:verdana; text-align:center;">Digital Trust Bank</h1>
+<p style="color: red">Please select a loan type.</p>
+
+<form class="form-horizontal" name="formName" role="form">
+<!----------------------------------------SCRIPT BELOW---------------------------------->	
+<script cam-script type="text/form-script">
+	var variableManager = camForm.variableManager;
+	inject(['$http', 'Uri', function($http, Uri)
+	{   camForm.on('variables-fetched', function() 
+		{   $http.get(Uri.appUri('http://localhost:8081/loan'))
+			.then(function(task)
+			{	$scope.loanfield = task.data;
+				console.log(task);
+				console.log(variableManager.variables);			  
+			}
+		);});
+	}]);
+</script>
+
+<script cam-script type="text/form-script">
+	var variableManager = camForm.variableManager;
+	camForm.on('submit', function() 
+	{	console.log($scope.selected);
+		variableManager.createVariable({
+		name: 'loanfieldid',
+		type: 'String',
+		value: $scope.selected.id,
+		isDirty: true
+	});
+	variableManager.createVariable
+	({  name: 'loanfieldname',
+		type: 'String',
+		value: $scope.selected.name,
+		isDirty: true
+	});
+	});
+</script>
+<!------------------------------------HTML CODE BELOW----------------------------------->
+	<div class="form-group"><div class="control-group">
+	<label class="control-label" for="name">Types of loan </label><br><div class="controls">
+	<select ng-options="item as item.name for item in loanfield track by item.id" ng-model="selected"></select>
+	</div></div></div>
+</form>
+</body>
+</html>
