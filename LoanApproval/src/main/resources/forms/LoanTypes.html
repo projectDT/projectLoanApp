@@ -24,18 +24,19 @@
 	var variableManager = camForm.variableManager;
 	camForm.on('submit', function() 
 	{	console.log($scope.selected);
-		variableManager.createVariable({
-		name: 'loanfieldid',
-		type: 'String',
-		value: $scope.selected.id,
-		isDirty: true
-	});
-	variableManager.createVariable
-	({  name: 'loanfieldname',
-		type: 'String',
-		value: $scope.selected.name,
-		isDirty: true
-	});
+		variableManager.createVariable
+		({  	
+			name: 'loanfieldid',
+			type: 'String',
+			value: $scope.selected.id,
+			isDirty: true
+		});
+		variableManager.createVariable
+		({ 	name: 'loanfieldname',
+			type: 'String',
+			value: $scope.selected.name,
+			isDirty: true
+		});
 	});
 </script>
 <!------------------------------------HTML CODE BELOW----------------------------------->
