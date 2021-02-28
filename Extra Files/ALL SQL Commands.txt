@@ -1,0 +1,126 @@
+/*		This document consists of ALL SQL commands used in this project.	   */
+
+/*******************************************************************************/
+/*        Commands for creating "basicinfo" table written below                */
+/*******************************************************************************/
+CREATE TABLE `mydb5`.`basicinfo` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `age` int NOT NULL,
+  `salary` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM mydb5.basicinfo;
+
+
+/*******************************************************************************/
+/*        Commands for creating "commdetails" table written below              */
+/*******************************************************************************/
+
+CREATE TABLE `mydb5`.`commdetails` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL,
+  `mobileno` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `pincode` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM mydb5.commdetails;
+
+/*******************************************************************************/
+/*        Commands for creating "customertable" table written below            */
+/*******************************************************************************/
+
+CREATE TABLE `mydb5`.`customertable` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `basic_id` int unsigned DEFAULT NULL,
+  `loantenure` varchar(45) DEFAULT NULL,
+  `comm_id` int unsigned DEFAULT NULL,
+  `loan_id_selected` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_basic_idx` (`basic_id`),
+  KEY `fk_comm_idx` (`comm_id`),
+  CONSTRAINT `fk_basic` FOREIGN KEY (`basic_id`) REFERENCES `basicinfo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_comm` FOREIGN KEY (`comm_id`) REFERENCES `commdetails` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM mydb5.customertable;
+
+
+/*******************************************************************************/
+/*        Commands for creating "loantype" table written below            	   */
+/*******************************************************************************/
+
+CREATE TABLE `mydb5`.`loantype` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `loan_type` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM mydb5.loantype;
+
+
+/*******************************************************************************/
+/*        Commands for creating "loandetails" table written below              */
+/*******************************************************************************/
+
+CREATE TABLE `loandetails` (
+  `id` int NOT NULL,
+  `documents` varchar(45) NOT NULL,
+  `interest` float NOT NULL,
+  `eligibility` int NOT NULL,
+  `eligibility2` int NOT NULL,
+  `eligibility3` int NOT NULL,
+  `loan` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM mydb5.loandetails;
+
+
+
+/*******************************************************************************/
+/*        			INNER JOIN Syntax for Multiple Tables		               */
+/*******************************************************************************/
+
+SELECT COLUMNS
+FROM TABLE1
+INNER JOIN TABLE2
+ON TABLE1.COLUMN_NAME = TABLE2.COLUMN_NAME
+
+/*******************************************************************************/
+/*        INNER JOIN Implementation for Customer and LoanType Table  		   */
+/*******************************************************************************/
+
+SELECT *
+FROM customertable c
+INNER JOIN loantype l
+ON c.loan_id_selected = l.id;
+
+/*******************************************************************************/
+/*        LEFT JOIN Implementation for Customer and LoanType Table  		   */
+/*******************************************************************************/
+
+SELECT *
+FROM customertable 
+LEFT JOIN loantype 
+ON customertable.loan_id_selected = loantype.id;
+
+
+/*******************************************************************************/
+/*        INNER JOIN Implementation for Customer and LoanDetails Table  		   */
+/*******************************************************************************/
+
+SELECT *
+FROM customertable c
+INNER JOIN loandetails l
+ON c.loan_id_selected = l.id;
+
+
+
+
+
+
+
+
+
