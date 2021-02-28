@@ -1,5 +1,5 @@
 # Customer Details :
-<br>
+
 ## All Customer Details Output in Json format (GET REQUEST): 
 <img src="https://github.com/projectDT/projectLoanApp/blob/secondBranch/Extra%20Files/Customer%20Details%20Images/customer%20json%20GET%20%20output.png" alt="Image 4"/>
 
