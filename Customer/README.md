@@ -5,7 +5,7 @@
 
 <br><br><br><br>
 ### Single Customer Details using id :
-<img src="https://github.com/projectDT/projectLoanApp/blob/secondBranch/Extra%20Files/Customer%20Details%20Images/customer_json%20REST_output.png" alt="Image 5"/>
+<img src="https://github.com/projectDT/projectLoanApp/blob/secondBranch/Extra%20Files/Customer%20Details%20Images/single_customer%20GET_Request_Output.png" alt="Image 5"/>
 
 
 <br><br>
