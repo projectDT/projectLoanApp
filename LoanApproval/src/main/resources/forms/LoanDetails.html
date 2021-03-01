@@ -7,7 +7,8 @@
 <p style="color: red; font-size: 40px;">These are the basic requirements according to your selected loan type</p>
 
 <form name="formName" >
-   <script cam-script type="text/FormScript">  
+   <script cam-script type="text/form-script"> 
+   	var variableManager = camForm.variableManager;
 	inject(['$http', 'Uri', function($http, Uri) {           
          camForm.on('variables-fetched', function() {     
          $http.get(Uri.appUri('http://localhost:8090/details/1')).then(function(task) {
